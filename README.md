@@ -50,7 +50,7 @@ $str = ReadableURL::gen();
 
 This can be used to add to the end of a URL.
 
-Example: https://example.com/photos/ForgetfulHarshEgg
+Example: `https://example.com/photos/ForgetfulHarshEgg`
 
 For best results, use an integer value of 3, 4, or 5.
 
