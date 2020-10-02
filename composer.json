@@ -9,7 +9,7 @@
             "email": "sungkisa@naver.com"
         }
     ],
-    "type": "project",
+    "type": "library",
     "require": {
 		"php": ">=7.1"
     },
