@@ -7,7 +7,7 @@ class ReadableURL
 
     private $capitalize;
     private $wordCount;
-    private $seperator;
+    private $separator;
 
     private $vowels;
     private $adjectives;
@@ -23,7 +23,7 @@ class ReadableURL
 
         $this->capitalize = $capitalize;
         $this->wordCount = $wordCount;
-        $this->seperator = $separator;
+        $this->separator = $separator;
 
         $this->vowels = ['a', 'e', 'i', 'o', 'u'];
         $this->adjectives = explode(" ", file_get_contents(__DIR__ . "/words/adjectives.txt"));
@@ -77,7 +77,7 @@ class ReadableURL
             $wordList = $this->convertToTitleCase($wordList);
         }
 
-        return implode($this->seperator, $wordList);
+        return implode($this->separator, $wordList);
     }
 
     public static function gen(bool $capitalize = true, int $wordCount = 3, string $separator = '') {
