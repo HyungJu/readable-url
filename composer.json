@@ -1,5 +1,5 @@
 {
-    "name": "hyungju/ReadableURL",
+    "name": "hyungju/readable-url",
     "description": "Generate readable random phrases for URLs",
     "keywords": ["php"],
     "license": "MIT",
