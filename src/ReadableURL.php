@@ -2,9 +2,12 @@
 
 namespace HyungJu;
 
+/**
+ * readable-url
+ * Generate readable random phrases for URLs
+ */
 class ReadableURL
 {
-
     private $capitalize;
     private $wordCount;
     private $separator;
@@ -13,6 +16,14 @@ class ReadableURL
     private $adjectives;
     private $nouns;
 
+    /**
+     * ReadableURL constructor.
+     *
+     * @param bool $capitalize If true, returns string in CamelCase, else lowercase. (default: true)
+     * @param int $wordCount The number of words to be generated in the string. (Between 2 and 10). (default: 3)
+     * @param string $separator The separator between the words. (default: '')
+     * @throws \Exception
+     */
     function __construct(bool $capitalize = true, int $wordCount = 3, string $separator = '')
     {
         if ($wordCount < 2) {
@@ -30,6 +41,12 @@ class ReadableURL
         $this->nouns = explode(" ", file_get_contents(__DIR__ . "/words/nouns.txt"));
     }
 
+    /**
+     * 생성 시 단어들의 대문자 변환을 위한 함수.
+     *
+     * @param $wordsList
+     * @return mixed
+     */
     private function convertToTitleCase($wordsList)
     {
         for ($i = 0; $i < count($wordsList); $i++) {
@@ -39,6 +56,11 @@ class ReadableURL
         return $wordsList;
     }
 
+    /**
+     * readable-url 을 생성합니다.
+     *
+     * @return string
+     */
     public function generate()
     {
         $wordList = [];
@@ -80,7 +102,16 @@ class ReadableURL
         return implode($this->separator, $wordList);
     }
 
-    public static function gen(bool $capitalize = true, int $wordCount = 3, string $separator = '') {
+    /**
+     * readable-url 을 생성합니다. (shortcut)
+     *
+     * @param bool $capitalize If true, returns string in CamelCase, else lowercase. (default: true)
+     * @param int $wordCount The number of words to be generated in the string. (Between 2 and 10). (default: 3)
+     * @param string $separator The separator between the words. (default: '')
+     * @return string
+     * @throws \Exception
+     */
+    public static function gen(bool $capitalize = true, int $wordCount = 3, string $separator = ''): string {
         $class = new ReadableURL($capitalize, $wordCount, $separator);
         return $class->generate();
     }
