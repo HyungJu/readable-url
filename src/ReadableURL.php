@@ -79,4 +79,5 @@ class ReadableURL
 
         return implode($this->seperator, $wordList);
     }
+
 }
