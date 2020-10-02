@@ -4,6 +4,7 @@ namespace HyungJu\Tests;
 
 use HyungJu\ReadableURL;
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
 
 class GenerateTest extends TestCase
 {
@@ -16,7 +17,11 @@ class GenerateTest extends TestCase
 
     public function testConvertToTitleCase()
     {
-        $converted = $this->readableUrl->convertToTitleCase(['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'a', 'lazy', 'dog']);
+        $class = new ReflectionClass('HyungJu\ReadableURL');
+        $method = $class->getMethod("convertToTitleCase");
+        $method->setAccessible(true);
+
+        $converted = $method->invoke(null, ['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'a', 'lazy', 'dog']);
         $this->assertSame(['The', 'Quick', 'Brown', 'Fox', 'Jumps', 'Over', 'A', 'Lazy', 'Dog'], $converted);
     }
 
