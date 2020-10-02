@@ -7,7 +7,7 @@ Generate readable random phrases for URLs
 This library is available on packagist.
 To install, 
 ```shell script
-composer require readable-url
+composer require hyungju/readable-url
 ``` 
 
 Then create ``ReadableURL`` Class
@@ -17,22 +17,36 @@ $readableURL = new HyungJu\ReadableURL();
 
 You can pass three parameters to the class.
 ```php
+use HyungJu\ReadableURL;
 // Takes 3 parameters.
 // 1. A boolean value - If true, returns string in CamelCase, else lowercase.
 // 2. An integer value - The number of words to be generated in the string. (Between 2 and 10).
 // 3. A string - The seperator between the words.
 
-$readableURL = new HyungJu\ReadableURL();
+$readableURL = new ReadableURL();
 //$readableURL = new HyungJu\ReadableURL(false, 5, '-'); // Other options.
 ```
 
 To generate `ReadableURL`, call the `generate()` function.
 ```php
-$readableURL = new HyungJu\ReadableURL();
+use HyungJu\ReadableURL;
+
+...
+
+$readableURL = new ReadableURL();
 $readableURL->generate();
 // > QuickScrawnyCamp
 ```
 
+In addition, the following are simple to:
+```php
+use HyungJu\ReadableURL;
+
+...
+
+$str = ReadableURL::gen();
+// > FierceSaltyComparison
+```
 
 This can be used to add to the end of a URL.
 
