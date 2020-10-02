@@ -19,4 +19,18 @@ class GenerateTest extends TestCase
         $converted = $this->readableUrl->convertToTitleCase(['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'a', 'lazy', 'dog']);
         $this->assertSame(['The', 'Quick', 'Brown', 'Fox', 'Jumps', 'Over', 'A', 'Lazy', 'Dog'], $converted);
     }
+
+    public function testGenerate()
+    {
+        $generated = $this->readableUrl->generate(); // Capitalize, 3Words, No Separator
+
+        $capitalWordsCount = 0;
+        for($i=0; $i < strlen($generated); $i++){
+            if(ctype_upper($generated[$i])){
+                $capitalWordsCount++;
+            }
+        }
+
+        $this->assertSame(3, $capitalWordsCount);
+    }
 }

@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":214:{a:2:{s:7:"defects";a:1:{s:40:"HyungJu\Tests\GenerateTest::testGenerate";i:3;}s:5:"times";a:2:{s:50:"HyungJu\Tests\GenerateTest::testConvertToTitleCase";d:0.003;s:40:"HyungJu\Tests\GenerateTest::testGenerate";d:0;}}}
