@@ -40,7 +40,13 @@ Example: https://example.com/photos/ForgetfulHarshEgg
 
 For best results, use an integer value of 3, 4, or 5.
 
+## Test
+`composer test` 
+
+## Versioning
+We use [SemVer](https://semver.org/) for versioning this project.
+
 ## License
 MIT License
 
-* This library is a PHP version of [readable-url](https://www.npmjs.com/package/readable-url)
+* This library is a PHP port of [readable-url](https://www.npmjs.com/package/readable-url)
