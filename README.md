@@ -26,6 +26,14 @@ $readableURL = new HyungJu\ReadableURL();
 //$readableURL = new HyungJu\ReadableURL(false, 5, '-'); // Other options.
 ```
 
+To generate `ReadableURL`, call the `generate()` function.
+```php
+$readableURL = new HyungJu\ReadableURL();
+$readableURL->generate();
+// > QuickScrawnyCamp
+```
+
+
 This can be used to add to the end of a URL.
 
 Example: https://example.com/photos/ForgetfulHarshEgg
