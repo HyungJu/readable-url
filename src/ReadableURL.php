@@ -22,14 +22,14 @@ class ReadableURL
      * @param bool $capitalize If true, returns string in CamelCase, else lowercase. (default: true)
      * @param int $wordCount The number of words to be generated in the string. (Between 2 and 10). (default: 3)
      * @param string $separator The separator between the words. (default: '')
-     * @throws \Exception
+     * @throws \UnexpectedValueException
      */
     function __construct(bool $capitalize = true, int $wordCount = 3, string $separator = '')
     {
         if ($wordCount < 2) {
-            throw new \Exception('Minimum value expected: 2');
+            throw new \UnexpectedValueException('Minimum value expected: 2');
         } else if ($wordCount > 10) {
-            throw new \Exception('Maximum value expected: 10');
+            throw new \UnexpectedValueException('Maximum value expected: 10');
         }
 
         $this->capitalize = $capitalize;
