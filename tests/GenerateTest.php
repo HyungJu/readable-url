@@ -38,4 +38,18 @@ class GenerateTest extends TestCase
 
         $this->assertSame(3, $capitalWordsCount);
     }
+
+    public function testGenerateStatic()
+    {
+        $generated = ReadableURL::gen(); // Capitalize, 3Words, No Separator
+
+        $capitalWordsCount = 0;
+        for($i=0; $i < strlen($generated); $i++){
+            if(ctype_upper($generated[$i])){
+                $capitalWordsCount++;
+            }
+        }
+
+        $this->assertSame(3, $capitalWordsCount);
+    }
 }
