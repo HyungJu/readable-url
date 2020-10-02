@@ -13,7 +13,7 @@ class ReadableURL
     private $adjectives;
     private $nouns;
 
-    function __construct(bool $capitalize = true, int $wordCount = 3, string $seperator = '')
+    function __construct(bool $capitalize = true, int $wordCount = 3, string $separator = '')
     {
         if ($wordCount < 2) {
             throw new \Exception('Minimum value expected: 2');
@@ -23,14 +23,14 @@ class ReadableURL
 
         $this->capitalize = $capitalize;
         $this->wordCount = $wordCount;
-        $this->seperator = $seperator;
+        $this->seperator = $separator;
 
         $this->vowels = ['a', 'e', 'i', 'o', 'u'];
         $this->adjectives = explode(" ", file_get_contents(__DIR__ . "/words/adjectives.txt"));
         $this->nouns = explode(" ", file_get_contents(__DIR__ . "/words/nouns.txt"));
     }
 
-    function convertToTitleCase($wordsList)
+    private function convertToTitleCase($wordsList)
     {
         for ($i = 0; $i < count($wordsList); $i++) {
             $wordsList[$i] = strtoupper($wordsList[$i][0]) . strtolower(substr($wordsList[$i], 1));
@@ -39,7 +39,7 @@ class ReadableURL
         return $wordsList;
     }
 
-    function generate()
+    public function generate()
     {
         $wordList = [];
 
@@ -78,5 +78,10 @@ class ReadableURL
         }
 
         return implode($this->seperator, $wordList);
+    }
+
+    public static function gen(bool $capitalize = true, int $wordCount = 3, string $separator = '') {
+        $class = new ReadableURL($capitalize, $wordCount, $separator);
+        return $class->generate();
     }
 }
