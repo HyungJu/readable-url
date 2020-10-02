@@ -47,7 +47,7 @@ class ReadableURL
      * @param $wordsList
      * @return mixed
      */
-    private function convertToTitleCase($wordsList)
+    private static function convertToTitleCase(array $wordsList)
     {
         for ($i = 0; $i < count($wordsList); $i++) {
             $wordsList[$i] = strtoupper($wordsList[$i][0]) . strtolower(substr($wordsList[$i], 1));
