@@ -8,6 +8,7 @@ Generate readable random phrases for URLs
 ![Badge](https://img.shields.io/github/license/hyungju/readable-url?style=for-the-badge)
 ![Badge](https://img.shields.io/github/stars/hyungju/readable-url?style=for-the-badge)
 ![Badge](https://img.shields.io/packagist/v/hyungju/readable-url?style=for-the-badge)
+![Badge](https://img.shields.io/codecov/c/github/hyungju/readable-url?style=for-the-badge)
 
 -----
 
