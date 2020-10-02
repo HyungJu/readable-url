@@ -27,6 +27,6 @@
         }
     },
     "scripts": {
-        "test": "./vendor/bin/phpunit --colors=always --configuration phpunit.xml.dist"
+        "test": "./vendor/bin/phpunit --colors=always --configuration phpunit.xml.dist --coverage-clover coverage.xml"
     }
 }
