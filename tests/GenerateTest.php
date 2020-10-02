@@ -1,14 +1,15 @@
 <?php
 
-namespace HyungJu;
+namespace HyungJu\Tests;
 
+use HyungJu\ReadableURL;
 use PHPUnit\Framework\TestCase;
 
 class GenerateTest extends TestCase
 {
     private $readableUrl;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->readableUrl = new ReadableURL();
     }

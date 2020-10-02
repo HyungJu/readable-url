@@ -20,5 +20,13 @@
         "psr-4": {
             "HyungJu\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HyungJu\\Tests\\": "test"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit --colors=always --configuration phpunit.xml.dist"
     }
 }
