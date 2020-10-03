@@ -24,16 +24,16 @@ Then create ``ReadableURL`` Class
 $readableURL = new HyungJu\ReadableURL();
 ```
 
-You can pass three parameters to the class.
+You can pass four parameters to the class.
 ```php
 use HyungJu\ReadableURL;
-// Takes 3 parameters.
+// Takes 4 parameters.
 // 1. A boolean value - If true, returns string in CamelCase, else lowercase.
 // 2. An integer value - The number of words to be generated in the string. (Between 2 and 10).
 // 3. A string - The seperator between the words.
-
+// 4. Language Class - Currently Supported : HyungJu\Language\En, HyungJu\Language\Ko. pass language instance! the default is HyungJu\Language\En
 $readableURL = new ReadableURL();
-//$readableURL = new HyungJu\ReadableURL(false, 5, '-'); // Other options.
+//$readableURL = new HyungJu\ReadableURL(false, 5, '-', new HyungJu\Language\Ko()); // Other options.
 ```
 
 To generate `ReadableURL`, call the `generate()` function.
