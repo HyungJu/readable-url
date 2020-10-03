@@ -28,7 +28,7 @@ class ReadableURL
      * @param string $separator The separator between the words. (default: '')
      * @throws \UnexpectedValueException
      */
-    function __construct(bool $capitalize = true, int $wordCount = 3, string $separator = '', string $language = 'ko')
+    function __construct(bool $capitalize = true, int $wordCount = 3, string $separator = '', string $language = 'en')
     {
         if ($wordCount < 2) {
             throw new \UnexpectedValueException('Minimum value expected: 2');
