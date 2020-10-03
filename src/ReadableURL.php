@@ -43,7 +43,7 @@ class ReadableURL
     }
 
     /**
-     * 생성 시 단어들의 대문자 변환을 위한 함수.
+     * Convert words to be capitalized
      *
      * @param $wordsList
      * @return mixed
@@ -58,7 +58,7 @@ class ReadableURL
     }
 
     /**
-     * readable-url 을 생성합니다.
+     * Generate readable-url
      *
      * @return string
      */
@@ -90,7 +90,7 @@ class ReadableURL
     }
 
     /**
-     * readable-url 을 생성합니다. (shortcut)
+     * Generate readable-url (shortcut)
      *
      * @param bool $capitalize If true, returns string in CamelCase, else lowercase. (default: true)
      * @param int $wordCount The number of words to be generated in the string. (Between 2 and 10). (default: 3)
