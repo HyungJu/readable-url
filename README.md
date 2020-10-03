@@ -1,14 +1,14 @@
 ![Logo](readable.png)
 Generate readable random phrases for URLs
 
-![Badge](https://img.shields.io/github/workflow/status/hyungju/readable-url/Test?style=for-the-badge)
-![Badge](https://img.shields.io/packagist/dm/hyungju/readable-url?style=for-the-badge)
-![Badge](https://img.shields.io/github/issues/hyungju/readable-url?style=for-the-badge)
-![Badge](https://img.shields.io/github/issues-pr-closed/hyungju/readable-url?style=for-the-badge)
-![Badge](https://img.shields.io/github/license/hyungju/readable-url?style=for-the-badge)
-![Badge](https://img.shields.io/github/stars/hyungju/readable-url?style=for-the-badge)
-![Badge](https://img.shields.io/packagist/v/hyungju/readable-url?style=for-the-badge)
-![Badge](https://img.shields.io/codecov/c/github/hyungju/readable-url?style=for-the-badge)
+![Badge](https://img.shields.io/github/workflow/status/hyungju/readable-url/Test)
+![Badge](https://img.shields.io/packagist/dm/hyungju/readable-url)
+![Badge](https://img.shields.io/github/issues/hyungju/readable-url)
+![Badge](https://img.shields.io/github/issues-pr-closed/hyungju/readable-url)
+![Badge](https://img.shields.io/github/license/hyungju/readable-url)
+![Badge](https://img.shields.io/github/stars/hyungju/readable-url)
+![Badge](https://img.shields.io/packagist/v/hyungju/readable-url)
+![Badge](https://img.shields.io/codecov/c/github/hyungju/readable-url)
 
 -----
 
