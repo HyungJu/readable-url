@@ -2,8 +2,6 @@
 
 namespace HyungJu;
 
-use HyungJu\Language\En;
-use HyungJu\Language\Language;
 use HyungJu\Language\LanguageHelper;
 
 /**
@@ -16,7 +14,6 @@ class ReadableURL
     private $wordCount;
     private $separator;
 
-    private $vowels;
 
     private $language;
 
@@ -26,6 +23,7 @@ class ReadableURL
      * @param bool $capitalize If true, returns string in CamelCase, else lowercase. (default: true)
      * @param int $wordCount The number of words to be generated in the string. (Between 2 and 10). (default: 3)
      * @param string $separator The separator between the words. (default: '')
+     * @param string $language Language Setting (default: 'en')
      * @throws \UnexpectedValueException
      */
     function __construct(bool $capitalize = true, int $wordCount = 3, string $separator = '', string $language = 'en')
@@ -39,8 +37,6 @@ class ReadableURL
         $this->capitalize = $capitalize;
         $this->wordCount = $wordCount;
         $this->separator = $separator;
-
-        $this->vowels = ['a', 'e', 'i', 'o', 'u'];
 
         $this->language = LanguageHelper::getLanguage($language);
 
