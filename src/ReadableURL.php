@@ -95,12 +95,13 @@ class ReadableURL
      * @param bool $capitalize If true, returns string in CamelCase, else lowercase. (default: true)
      * @param int $wordCount The number of words to be generated in the string. (Between 2 and 10). (default: 3)
      * @param string $separator The separator between the words. (default: '')
+     * @param string $language Language Setting (default: 'en')
      * @return string
      * @throws \Exception
      */
-    public static function gen(bool $capitalize = true, int $wordCount = 3, string $separator = ''): string
+    public static function gen(bool $capitalize = true, int $wordCount = 3, string $separator = '', string $language = 'en'): string
     {
-        $class = new ReadableURL($capitalize, $wordCount, $separator);
+        $class = new ReadableURL($capitalize, $wordCount, $separator, $language);
         return $class->generate();
     }
 
