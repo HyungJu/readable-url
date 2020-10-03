@@ -66,6 +66,18 @@ For best results, use an integer value of 3, 4, or 5.
 ## Test
 `composer test` 
 
+## Adding new language
+1. Add wordsets to `src/words/[language code]`.
+adjectives.txt and nouns.txt are needed. 
+
+2. Create your language class `src/Language/[language code].php`. the class name must be started with Uppercase.
+
+3. Implement the class based on other languages already implemented (korean and english)
+
+4. Register your language in `src/Language/LanguageHelper.php`.
+
+5. (optional) Add test for your language.
+
 ## Versioning
 We use [SemVer](https://semver.org/) for versioning this project.
 
