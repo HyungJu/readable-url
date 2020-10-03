@@ -4,6 +4,7 @@ namespace HyungJu;
 
 use HyungJu\Language\En;
 use HyungJu\Language\Language;
+use HyungJu\Language\LanguageHelper;
 
 /**
  * readable-url
@@ -16,8 +17,6 @@ class ReadableURL
     private $separator;
 
     private $vowels;
-    private $adjectives;
-    private $nouns;
 
     private $language;
 
@@ -29,7 +28,7 @@ class ReadableURL
      * @param string $separator The separator between the words. (default: '')
      * @throws \UnexpectedValueException
      */
-    function __construct(bool $capitalize = true, int $wordCount = 3, string $separator = '', $language = null)
+    function __construct(bool $capitalize = true, int $wordCount = 3, string $separator = '', string $language = 'ko')
     {
         if ($wordCount < 2) {
             throw new \UnexpectedValueException('Minimum value expected: 2');
@@ -43,11 +42,8 @@ class ReadableURL
 
         $this->vowels = ['a', 'e', 'i', 'o', 'u'];
 
-        if ($language == null) {
-            $this->language = new En();
-        } else {
-            $this->language = $language;
-        }
+        $this->language = LanguageHelper::getLanguage($language);
+
     }
 
     /**

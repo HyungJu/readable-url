@@ -64,7 +64,7 @@ class GenerateTest extends TestCase
 
     public function testGenerateKorean()
     {
-        $readableUrl = new ReadableURL(false, 3, "", new Ko());
+        $readableUrl = new ReadableURL(false, 3, "", 'ko');
         $generated = $readableUrl->generate(); // Capitalize, 3Words, No Separator
 
 
