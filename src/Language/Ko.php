@@ -2,14 +2,28 @@
 
 namespace HyungJu\Language;
 
-class Ko
+class Ko extends Language
 {
-    use Language;
 
-    private $langCode = 'ko';
-    private $gluesForVowel = ['그'];
-    private $gluesForNonVowel = ['그', '그'];
-    private $vowels = ['a', 'e', 'i', 'o', 'u'];
+    function getLangCode()
+    {
+        return 'ko';
+    }
+
+    function getGluesForVowel()
+    {
+        return ['그'];
+    }
+
+    function getGluesForNonVowel()
+    {
+        return ['그'];
+    }
+
+    function getVowels()
+    {
+        return [];
+    }
 
     function isVowel(string $word)
     {

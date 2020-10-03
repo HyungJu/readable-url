@@ -2,21 +2,35 @@
 
 namespace HyungJu\Language;
 
-class En
+class En extends Language
 {
-    use Language;
 
-    private $langCode = 'en';
-    private $gluesForVowel = ['an'];
-    private $gluesForNonVowel = ['a', 'the'];
-    private $vowels = ['a', 'e', 'i', 'o', 'u'];
+    function getLangCode()
+    {
+        return 'en';
+    }
+
+    function getGluesForVowel()
+    {
+        return ['a', 'the'];
+    }
+
+    function getGluesForNonVowel()
+    {
+        return ['an'];
+    }
+
+    function getVowels()
+    {
+        return ['a', 'e', 'i', 'o', 'u'];
+    }
 
     function isVowel(string $word)
     {
         $isVowel = false;
 
         for ($i = 0; $i < 5; $i++) {
-            if ($this->vowels[$i] === $word[0]) {
+            if ($this->getVowels()[$i] === $word[0]) {
                 $isVowel = true;
                 break;
             }
