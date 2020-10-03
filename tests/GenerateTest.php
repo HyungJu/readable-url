@@ -2,9 +2,11 @@
 
 namespace HyungJu\Tests;
 
+use http\Exception\UnexpectedValueException;
 use HyungJu\ReadableURL;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
+use function PHPUnit\Framework\assertEquals;
 
 class GenerateTest extends TestCase
 {
@@ -25,13 +27,33 @@ class GenerateTest extends TestCase
         $this->assertSame(['The', 'Quick', 'Brown', 'Fox', 'Jumps', 'Over', 'A', 'Lazy', 'Dog'], $converted);
     }
 
+    public function testWordCountMinLimit()
+    {
+        try {
+            new ReadableURL(true, 1, '');
+        } catch (\UnexpectedValueException $exception) {
+            assertEquals(0, $exception->getCode());
+            assertEquals("Minimum value expected: 2", $exception->getMessage());
+        }
+    }
+
+    public function testWordCountMaxLimit()
+    {
+        try {
+            new ReadableURL(true, 11, '');
+        } catch (\UnexpectedValueException $exception) {
+            assertEquals(0, $exception->getCode());
+            assertEquals("Maximum value expected: 10", $exception->getMessage());
+        }
+    }
+
     public function testGenerate()
     {
         $generated = $this->readableUrl->generate(); // Capitalize, 3Words, No Separator
 
         $capitalWordsCount = 0;
-        for($i=0; $i < strlen($generated); $i++){
-            if(ctype_upper($generated[$i])){
+        for ($i = 0; $i < strlen($generated); $i++) {
+            if (ctype_upper($generated[$i])) {
                 $capitalWordsCount++;
             }
         }
@@ -44,8 +66,8 @@ class GenerateTest extends TestCase
         $generated = ReadableURL::gen(); // Capitalize, 3Words, No Separator
 
         $capitalWordsCount = 0;
-        for($i=0; $i < strlen($generated); $i++){
-            if(ctype_upper($generated[$i])){
+        for ($i = 0; $i < strlen($generated); $i++) {
+            if (ctype_upper($generated[$i])) {
                 $capitalWordsCount++;
             }
         }
