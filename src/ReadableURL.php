@@ -2,6 +2,8 @@
 
 namespace HyungJu;
 
+use HyungJu\Language\En;
+
 /**
  * readable-url
  * Generate readable random phrases for URLs
@@ -16,6 +18,7 @@ class ReadableURL
     private $adjectives;
     private $nouns;
 
+    private $language;
     /**
      * ReadableURL constructor.
      *
@@ -37,8 +40,8 @@ class ReadableURL
         $this->separator = $separator;
 
         $this->vowels = ['a', 'e', 'i', 'o', 'u'];
-        $this->adjectives = explode(" ", file_get_contents(__DIR__ . "/words/adjectives.txt"));
-        $this->nouns = explode(" ", file_get_contents(__DIR__ . "/words/nouns.txt"));
+
+        $this->language = new En();
     }
 
     /**
@@ -65,33 +68,19 @@ class ReadableURL
     {
         $wordList = [];
 
-        array_push($wordList, $this->adjectives[rand(0, count($this->adjectives) - 1)]);
-        array_push($wordList, $this->nouns[rand(0, count($this->nouns) - 1)]);
+        array_push($wordList, $this->language->pickOneAdjective());
+        array_push($wordList, $this->language->pickOneNoun());
 
         if ($this->wordCount > 5) {
-            for ($i = 0; $i < $this->wordCount - 2; $i++) {
-                array_unshift($wordList, $this->adjectives[rand(0, count($this->adjectives) - 1)]);
-            }
+            array_map(function($e){
+                array_unshift($wordList, $e);
+            }, $this->language->pickMultipleAdjectives($this->wordCount-1));
         } else {
             if ($this->wordCount > 2) {
-                array_unshift($wordList, $this->adjectives[rand(0, count($this->adjectives) - 1)]);
+                array_unshift($wordList, $this->language->pickOneAdjective());
             }
             if ($this->wordCount > 3) {
-                $isVowel = false;
-                $firstLetter = $wordList[0][0];
-
-                for ($i = 0; $i < 5; $i++) {
-                    if ($this->vowels[$i] === $firstLetter) {
-                        $isVowel = true;
-                        break;
-                    }
-                }
-
-                if ($isVowel) {
-                    array_unshift($wordList, 'an');
-                } else {
-                    array_unshift($wordList, rand(0, 1) ? 'a' : 'the');
-                }
+                array_unshift($wordList, $this->language->pickOneGlueFor($wordList[0]));
             }
         }
 
