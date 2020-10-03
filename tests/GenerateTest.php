@@ -3,6 +3,7 @@
 namespace HyungJu\Tests;
 
 use http\Exception\UnexpectedValueException;
+use HyungJu\Language\Ko;
 use HyungJu\ReadableURL;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
@@ -59,6 +60,15 @@ class GenerateTest extends TestCase
         }
 
         $this->assertSame(3, $capitalWordsCount);
+    }
+
+    public function testGenerateKorean()
+    {
+        $readableUrl = new ReadableURL(false, 3, "", new Ko());
+        $generated = $readableUrl->generate(); // Capitalize, 3Words, No Separator
+
+
+        $this->assertNotNull($generated);
     }
 
     public function testGenerateStatic()

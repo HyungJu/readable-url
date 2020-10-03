@@ -3,6 +3,7 @@
 namespace HyungJu;
 
 use HyungJu\Language\En;
+use HyungJu\Language\Language;
 
 /**
  * readable-url
@@ -19,6 +20,7 @@ class ReadableURL
     private $nouns;
 
     private $language;
+
     /**
      * ReadableURL constructor.
      *
@@ -27,7 +29,7 @@ class ReadableURL
      * @param string $separator The separator between the words. (default: '')
      * @throws \UnexpectedValueException
      */
-    function __construct(bool $capitalize = true, int $wordCount = 3, string $separator = '')
+    function __construct(bool $capitalize = true, int $wordCount = 3, string $separator = '', $language = null)
     {
         if ($wordCount < 2) {
             throw new \UnexpectedValueException('Minimum value expected: 2');
@@ -41,7 +43,11 @@ class ReadableURL
 
         $this->vowels = ['a', 'e', 'i', 'o', 'u'];
 
-        $this->language = new En();
+        if ($language == null) {
+            $this->language = new En();
+        } else {
+            $this->language = $language;
+        }
     }
 
     /**
@@ -72,9 +78,9 @@ class ReadableURL
         array_push($wordList, $this->language->pickOneNoun());
 
         if ($this->wordCount > 5) {
-            array_map(function($e){
+            array_map(function ($e) {
                 array_unshift($wordList, $e);
-            }, $this->language->pickMultipleAdjectives($this->wordCount-1));
+            }, $this->language->pickMultipleAdjectives($this->wordCount - 1));
         } else {
             if ($this->wordCount > 2) {
                 array_unshift($wordList, $this->language->pickOneAdjective());
@@ -100,7 +106,8 @@ class ReadableURL
      * @return string
      * @throws \Exception
      */
-    public static function gen(bool $capitalize = true, int $wordCount = 3, string $separator = ''): string {
+    public static function gen(bool $capitalize = true, int $wordCount = 3, string $separator = ''): string
+    {
         $class = new ReadableURL($capitalize, $wordCount, $separator);
         return $class->generate();
     }
