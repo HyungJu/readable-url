@@ -5,12 +5,13 @@ namespace HyungJu\lang;
 
 
 use HyungJu\lang\en\En;
+use HyungJu\lang\ko\Ko;
 
 class LanguageHelper
 {
     private static $lang = [
         "en" => En::class,
-        "words" => Ko::class
+        "ko" => Ko::class
     ];
 
     private static $defaultLang = 'en';

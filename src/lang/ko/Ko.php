@@ -9,7 +9,7 @@ class Ko extends Language
 
     function getLangCode()
     {
-        return 'words';
+        return 'ko';
     }
 
     function getGluesForVowel()
