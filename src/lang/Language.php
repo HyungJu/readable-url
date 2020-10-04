@@ -1,6 +1,6 @@
 <?php
 
-namespace HyungJu\Language;
+namespace HyungJu\lang;
 
 abstract class Language
 {
@@ -13,13 +13,13 @@ abstract class Language
 
     public function pickOneAdjective(): string
     {
-        $adjectives = explode(" ", file_get_contents(__DIR__ . "/../words/" . $this->getLangCode() . "/adjectives.txt"));
+        $adjectives = explode(" ", file_get_contents(__DIR__ . "/" . $this->getLangCode() . "/words/adjectives.txt"));
         return $adjectives[rand(0, count($adjectives) - 1)];
     }
 
     public function pickOneNoun(): string
     {
-        $nouns = explode(" ", file_get_contents(__DIR__ . "/../words/" . $this->getLangCode() . "/nouns.txt"));
+        $nouns = explode(" ", file_get_contents(__DIR__ . "/" . $this->getLangCode() . "/words/nouns.txt"));
         return $nouns[rand(0, count($nouns) - 1)];
     }
 

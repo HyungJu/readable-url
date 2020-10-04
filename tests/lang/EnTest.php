@@ -1,12 +1,8 @@
 <?php
 
 
-namespace HyungJu\Tests\Language;
-
-use HyungJu\Language\En;
-use HyungJu\Language\Ko;
+use HyungJu\lang\en\En;
 use PHPUnit\Framework\TestCase;
-
 
 class ENTest extends TestCase
 {

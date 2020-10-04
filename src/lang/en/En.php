@@ -1,6 +1,8 @@
 <?php
 
-namespace HyungJu\Language;
+namespace HyungJu\lang\en;
+
+use HyungJu\lang\Language;
 
 class En extends Language
 {

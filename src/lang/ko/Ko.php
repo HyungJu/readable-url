@@ -1,13 +1,15 @@
 <?php
 
-namespace HyungJu\Language;
+namespace HyungJu\lang\ko;
+
+use HyungJu\lang\Language;
 
 class Ko extends Language
 {
 
     function getLangCode()
     {
-        return 'ko';
+        return 'words';
     }
 
     function getGluesForVowel()

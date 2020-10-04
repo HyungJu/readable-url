@@ -2,7 +2,7 @@
 
 namespace HyungJu;
 
-use HyungJu\Language\LanguageHelper;
+use HyungJu\lang\LanguageHelper;
 
 /**
  * readable-url

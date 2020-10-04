@@ -3,7 +3,7 @@
 namespace HyungJu\Tests;
 
 use http\Exception\UnexpectedValueException;
-use HyungJu\Language\Ko;
+use HyungJu\lang\Ko;
 use HyungJu\ReadableURL;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;

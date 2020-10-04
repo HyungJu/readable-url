@@ -1,9 +1,7 @@
 <?php
 
 
-namespace HyungJu\Tests\Language;
-
-use HyungJu\Language\Ko;
+use HyungJu\lang\ko\Ko;
 use PHPUnit\Framework\TestCase;
 
 
