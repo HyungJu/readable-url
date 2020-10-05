@@ -6,28 +6,27 @@ use HyungJu\lang\Language;
 
 class Ko extends Language
 {
-
-    function getLangCode()
+    public function getLangCode()
     {
         return 'ko';
     }
 
-    function getGluesForVowel()
+    public function getGluesForVowel()
     {
         return ['그'];
     }
 
-    function getGluesForNonVowel()
+    public function getGluesForNonVowel()
     {
         return ['그'];
     }
 
-    function getVowels()
+    public function getVowels()
     {
         return [];
     }
 
-    function isVowel(string $word)
+    public function isVowel(string $word)
     {
         return true;
     }

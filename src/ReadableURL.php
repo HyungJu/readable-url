@@ -6,7 +6,7 @@ use HyungJu\lang\LanguageHelper;
 
 /**
  * readable-url
- * Generate readable random phrases for URLs
+ * Generate readable random phrases for URLs.
  */
 class ReadableURL
 {
@@ -14,23 +14,23 @@ class ReadableURL
     private $wordCount;
     private $separator;
 
-
     private $language;
 
     /**
      * ReadableURL constructor.
      *
-     * @param bool $capitalize If true, returns string in CamelCase, else lowercase. (default: true)
-     * @param int $wordCount The number of words to be generated in the string. (Between 2 and 10). (default: 3)
-     * @param string $separator The separator between the words. (default: '')
-     * @param string $language Language Setting (default: 'en')
+     * @param bool   $capitalize If true, returns string in CamelCase, else lowercase. (default: true)
+     * @param int    $wordCount  The number of words to be generated in the string. (Between 2 and 10). (default: 3)
+     * @param string $separator  The separator between the words. (default: '')
+     * @param string $language   Language Setting (default: 'en')
+     *
      * @throws \UnexpectedValueException
      */
-    function __construct(bool $capitalize = true, int $wordCount = 3, string $separator = '', string $language = 'en')
+    public function __construct(bool $capitalize = true, int $wordCount = 3, string $separator = '', string $language = 'en')
     {
         if ($wordCount < 2) {
             throw new \UnexpectedValueException('Minimum value expected: 2');
-        } else if ($wordCount > 10) {
+        } elseif ($wordCount > 10) {
             throw new \UnexpectedValueException('Maximum value expected: 10');
         }
 
@@ -39,26 +39,26 @@ class ReadableURL
         $this->separator = $separator;
 
         $this->language = LanguageHelper::getLanguage($language);
-
     }
 
     /**
-     * Convert words to be capitalized
+     * Convert words to be capitalized.
      *
      * @param $wordsList
+     *
      * @return mixed
      */
     private static function convertToTitleCase(array $wordsList)
     {
         for ($i = 0; $i < count($wordsList); $i++) {
-            $wordsList[$i] = strtoupper($wordsList[$i][0]) . strtolower(substr($wordsList[$i], 1));
+            $wordsList[$i] = strtoupper($wordsList[$i][0]).strtolower(substr($wordsList[$i], 1));
         }
 
         return $wordsList;
     }
 
     /**
-     * Generate readable-url
+     * Generate readable-url.
      *
      * @return string
      */
@@ -90,19 +90,21 @@ class ReadableURL
     }
 
     /**
-     * Generate readable-url (shortcut)
+     * Generate readable-url (shortcut).
      *
-     * @param bool $capitalize If true, returns string in CamelCase, else lowercase. (default: true)
-     * @param int $wordCount The number of words to be generated in the string. (Between 2 and 10). (default: 3)
-     * @param string $separator The separator between the words. (default: '')
-     * @param string $language Language Setting (default: 'en')
-     * @return string
+     * @param bool   $capitalize If true, returns string in CamelCase, else lowercase. (default: true)
+     * @param int    $wordCount  The number of words to be generated in the string. (Between 2 and 10). (default: 3)
+     * @param string $separator  The separator between the words. (default: '')
+     * @param string $language   Language Setting (default: 'en')
+     *
      * @throws \Exception
+     *
+     * @return string
      */
     public static function gen(bool $capitalize = true, int $wordCount = 3, string $separator = '', string $language = 'en'): string
     {
         $class = new ReadableURL($capitalize, $wordCount, $separator, $language);
+
         return $class->generate();
     }
-
 }
