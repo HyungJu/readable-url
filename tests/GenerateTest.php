@@ -2,12 +2,10 @@
 
 namespace HyungJu\Tests;
 
-use http\Exception\UnexpectedValueException;
-use HyungJu\lang\Ko;
 use HyungJu\ReadableURL;
+use function PHPUnit\Framework\assertEquals;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
-use function PHPUnit\Framework\assertEquals;
 
 class GenerateTest extends TestCase
 {
@@ -21,7 +19,7 @@ class GenerateTest extends TestCase
     public function testConvertToTitleCase()
     {
         $class = new ReflectionClass('HyungJu\ReadableURL');
-        $method = $class->getMethod("convertToTitleCase");
+        $method = $class->getMethod('convertToTitleCase');
         $method->setAccessible(true);
 
         $converted = $method->invoke(null, ['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'a', 'lazy', 'dog']);
@@ -34,7 +32,7 @@ class GenerateTest extends TestCase
             new ReadableURL(true, 1, '');
         } catch (\UnexpectedValueException $exception) {
             assertEquals(0, $exception->getCode());
-            assertEquals("Minimum value expected: 2", $exception->getMessage());
+            assertEquals('Minimum value expected: 2', $exception->getMessage());
         }
     }
 
@@ -44,7 +42,7 @@ class GenerateTest extends TestCase
             new ReadableURL(true, 11, '');
         } catch (\UnexpectedValueException $exception) {
             assertEquals(0, $exception->getCode());
-            assertEquals("Maximum value expected: 10", $exception->getMessage());
+            assertEquals('Maximum value expected: 10', $exception->getMessage());
         }
     }
 
@@ -64,9 +62,8 @@ class GenerateTest extends TestCase
 
     public function testGenerateKorean()
     {
-        $readableUrl = new ReadableURL(false, 3, "", 'ko');
+        $readableUrl = new ReadableURL(false, 3, '', 'ko');
         $generated = $readableUrl->generate(); // Capitalize, 3Words, No Separator
-
 
         $this->assertNotNull($generated);
     }

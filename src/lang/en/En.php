@@ -6,28 +6,27 @@ use HyungJu\lang\Language;
 
 class En extends Language
 {
-
-    function getLangCode()
+    public function getLangCode()
     {
         return 'en';
     }
 
-    function getGluesForVowel()
+    public function getGluesForVowel()
     {
         return ['a', 'the'];
     }
 
-    function getGluesForNonVowel()
+    public function getGluesForNonVowel()
     {
         return ['an'];
     }
 
-    function getVowels()
+    public function getVowels()
     {
         return ['a', 'e', 'i', 'o', 'u'];
     }
 
-    function isVowel(string $word)
+    public function isVowel(string $word)
     {
         $isVowel = false;
 

@@ -4,34 +4,41 @@ namespace HyungJu\lang;
 
 abstract class Language
 {
-    abstract function isVowel(string $word);
+    abstract public function isVowel(string $word);
 
-    abstract function getLangCode();
-    abstract function getGluesForVowel();
-    abstract function getGluesForNonVowel();
-    abstract function getVowels();
+    abstract public function getLangCode();
+
+    abstract public function getGluesForVowel();
+
+    abstract public function getGluesForNonVowel();
+
+    abstract public function getVowels();
 
     public function pickOneAdjective(): string
     {
-        $adjectives = explode(" ", file_get_contents(__DIR__ . "/" . $this->getLangCode() . "/words/adjectives.txt"));
+        $adjectives = explode(' ', file_get_contents(__DIR__.'/'.$this->getLangCode().'/words/adjectives.txt'));
+
         return $adjectives[rand(0, count($adjectives) - 1)];
     }
 
     public function pickOneNoun(): string
     {
-        $nouns = explode(" ", file_get_contents(__DIR__ . "/" . $this->getLangCode() . "/words/nouns.txt"));
+        $nouns = explode(' ', file_get_contents(__DIR__.'/'.$this->getLangCode().'/words/nouns.txt'));
+
         return $nouns[rand(0, count($nouns) - 1)];
     }
 
     public function pickOneGlueForVowel(): string
     {
         $gluesForVowel = $this->getGluesForVowel();
+
         return $gluesForVowel[rand(0, count($gluesForVowel) - 1)];
     }
 
     public function pickOneGlueForNonVowel(): string
     {
         $gluesForNonVowel = $this->getGluesForNonVowel();
+
         return $gluesForNonVowel[rand(0, count($gluesForNonVowel) - 1)];
     }
 
@@ -63,6 +70,4 @@ abstract class Language
 
         return $res;
     }
-
-
 }
