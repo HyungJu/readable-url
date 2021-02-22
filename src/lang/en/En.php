@@ -13,12 +13,12 @@ class En extends Language
 
     public function getGluesForVowel()
     {
-        return ['a', 'the'];
+        return ['an', 'the'];
     }
 
     public function getGluesForNonVowel()
     {
-        return ['an'];
+        return ['a'];
     }
 
     public function getVowels()
